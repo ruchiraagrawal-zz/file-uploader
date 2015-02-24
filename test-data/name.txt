@@ -1,0 +1,33 @@
+Scala is often paraded for having closures and implicits. Not surprising really, as lack of closures and explicit typing are perhaps the two biggest sources of Java boilerplate!
+
+But once you examine it a little deeper, it goes far beyond Java-without-the-annoying bits, Perhaps the greatest strength of Scala is not one specific named feature, but how successful it is in unifying all of the features mentioned in other answers.
+
+Post Functional
+
+The union of object orientation and functional programming for example: Because functions are objects, Scala was able to make Maps implement the Function interface, so when you use a map to look up a value, it's no different syntactically from using a function to calculate a value. In unifying these paradigms so well, Scala truly is a post-functional language.
+
+Or operator overloading, which is achieved by not actually having operators, they're just methods used in infix notation. So 1 + 2 is just calling the + method on an integer. If the method was named plus instead then you'd use it as 1 plus 2 which is no different from 1.plus(2). This is made possible because of another combination of features; everything in Scala is an object, there are no primitives, so integers can have methods.
+
+Other Feature Fusion
+
+Type classes were also mentioned, achieved by a combination of higher-kinded types, singleton objects, and implicits.
+
+Other features that work well together are case classes and pattern matching, allowing you to easily build and deconstruct algebraic data types, without having to manually write all the tedious equality, hashcode, constructor and getter/setter logic that Java demands.
+
+Specifying immutability by default, offering lazy values, and providing first class functions all combine to give you a language that's very suited to building efficient functional data structures.
+
+The list goes on, but I've been using Scala for over 3 years now, and I'm still amazed almost daily at how well everything just works together.
+
+Efficient and Versatile
+
+Scala is also a small language, with a spec that (surprisingly!) only needs to be around 1/3 the size of Java's. This is partly because Java has a lot of special cases in the spec that Scala simplifies away, partly because of removing features such as primitives and operators, and partly because a lot of functionality has been moved from the language and into the libraries.
+
+As a benefit of this, all the techniques available to the Scala library authors are also available to any Scala user, which makes it a great language for defining your own control-flow constructs and for building DSLs. This has been used to great effect in projects like Akka - a 3rd-party Actor framework.
+
+Deep
+
+Finally, it scales the full range of programming styles.
+
+The runtime interpreter (known as the REPL) allows you to very quickly explore ideas in an interactive session, and Scala files can also be run as scripts without needing explicit compilation. When coupled with type inference, this gives Scala the feel of a dynamic language such as Ruby, Perl, or a bash script.
+
+At the other end of the spectrum, traits, classes, objects and self-types allow you to build a full-scale enterprise system based on distinct components and using dependency injection without the need of 3rd-party tools. Scala also integrates with Java libraries at a level almost on-par with native Java, and by running on the JVM can take advantage of all the speed benefits offered on that platform, as well as being perfectly usable in containers such as tomcat, or with OSGi.
